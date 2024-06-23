@@ -7,11 +7,11 @@
         <div class="main-header">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                         <div class="logo">
                             <figure>
                                 <a href="{% url 'home' %}" class="light-logo">
-                                    <img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodOnline" width="250">
+                                    <img src="{% static 'logo/foodOnlinelogo.png' %}" alt="Zomato" width="200">
                                 </a>
                             </figure>
                         </div>
@@ -31,14 +31,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                         <div class="login-option">
 
                             <a href="">
                                 <i class="fa fa-shopping-cart text-danger" style="font-size: 20px;"></i>
-                                <span class="badge badge-warning" id="cart_counter"
+                                <!-- <span class="badge badge-warning" id="cart_counter"
                                     style="border-radius: 50px; position: relative; bottom:10px; left: -5px;">{{
-                                    cart_count }}</span>
+                                    cart_count }}</span> -->
                             </a>
 
                             <a href="" class="btn btn-outline-danger text-uppercase font-weight-bold">Marketplace</a>
@@ -47,10 +47,10 @@
                             <a class="cs-color cs-popup-joinus-btn login-popup text-danger" href="">Logout</a>
 
                             <a class="cs-color cs-popup-joinus-btn login-popup" href="">Login</a> /
-                            <span><a href="" class="cs-color cs-popup-joinus-btn login-popup ml-0">Register</a></span><a
-                                class="get-start-btn" href="">
-                                Register
-                                Restaurant </a>
+                            <span><a href="{% url 'registerUser' %}"
+                                    class="cs-color cs-popup-joinus-btn login-popup ml-0">Register</a></span>
+                            <a class="get-start-btn mb-3" href="{% url 'registerVendor' %}">Register Restaurant</a>
+
 
                         </div>
                     </div>

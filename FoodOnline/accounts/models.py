@@ -62,6 +62,8 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
+    objects = UserManager()  # Link the custom user manager
+
     def __str__(self):
         return self.first_name
 
@@ -104,20 +106,21 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def post_user_create_profile_receiver(sender, instance, created, **kwargs):
-    print(created)  # True
+    # print(created)  # True
     if created:
         UserProfile.objects.create(user=instance)
-        print("user profile created ")
+        # print("user profile created ")
     else:
         try:
             profile = UserProfile.objects.get(user=instance)
             profile.save()
         except:
             UserProfile.objects.create(user=instance)
-            print("Profile does not exist , but we created one!!")
+            # print("Profile does not exist , but we created one!!")
         print("user is updated")
 
 
 @receiver(pre_save, sender=User)
 def pre_save_profile_receiver(sender, instance, **kwargs):
-    print(instance.first_name, "this user is being saved")
+    pass
+    # print(instance.first_name, "this user is being saved")
